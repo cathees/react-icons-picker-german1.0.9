@@ -3,7 +3,7 @@
 import React from 'react';
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineClose } from 'react-icons/ai'
-import * as AllIconsLib from './lib'
+import * as AllIconsLib from '../src/lib'
 import translate from "translate"
 
 
