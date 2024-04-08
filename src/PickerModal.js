@@ -2,6 +2,7 @@ import React from 'react';
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineClose } from 'react-icons/ai'
 import * as AllIconsLib from './lib'
+import translate from "translate"
 
 const PickerModal = ({
     setModalOpen,
@@ -46,7 +47,10 @@ const PickerModal = ({
         const searchBarHeight = searchBar.offsetHeight
         target.style.height = parentHeight - searchBarHeight + "px"
     }
+    const translateInput = async (input) => {
+        translate(input, { from: "de", to: "en" }).then(text => setSearchValue(text))
 
+    }
     const processResult = async () => {
 
         const { ...getAllIcons } = AllIconsLib
@@ -92,7 +96,7 @@ const PickerModal = ({
                     <BsSearch onClick={() => setWatchRequest(watchRequest + 1)} style={{ cursor: 'pointer' }} />
                     <input
                         value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        onChange={(e) => translateInput(e.target.value)}
                         onKeyPress={onKeyPress}
                         ref={searchInputRef}
                         style={searchInputStyle}
