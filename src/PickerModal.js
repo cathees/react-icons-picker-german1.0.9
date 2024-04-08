@@ -4,9 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import * as AllIconsLib from './lib'
 import translate from "translate"
 
-translate.engine = 'google';
-translate.from = 'de';
-translate.to = 'en';
+
 
 const PickerModal = ({
     setModalOpen,
@@ -52,8 +50,8 @@ const PickerModal = ({
         target.style.height = parentHeight - searchBarHeight + "px"
     }
     const translateInput = async (input) => {
-    const translation = await translate(input).then(text => setSearchValue(text))
-
+    const translation = await translate(input, {from: 'de', to: 'en', engine:'google'})
+    return translation
     }
     const processResult = async () => {
 
@@ -67,7 +65,7 @@ const PickerModal = ({
 
         const searchResult = {}
         Object.keys(storeAllIcons).forEach(iconName => {
-            if (iconName.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
+            if (iconName.toLocaleLowerCase().includes(translateInput(searchValue).toLocaleLowerCase())) {
                 searchResult[iconName] = storeAllIcons[iconName]
             }
         })
