@@ -81,7 +81,7 @@ const PickerModal = ({
         Object.keys(searchInputFocusStyle).forEach(styleKey => target.style[styleKey] = 'unset')
         Object.keys(searchInputStyle).forEach(styleKey => target.style[styleKey] = searchInputStyle[styleKey])
     }
-    const onKeyPress = (e) => e.key === "Enter" && setWatchRequest(watchRequest + 1)
+    const onKeyPress = (e) => e.key === "Enter" && setWatchRequest(watchRequest + 1) && console.log(e.value)
     const handleModalIconsMouseOver = (e) => {
         const target = e.currentTarget
         Object.keys(modalIconsHoverStyle).forEach(styleKey => target.style[styleKey] = modalIconsHoverStyle[styleKey])
