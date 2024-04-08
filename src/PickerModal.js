@@ -64,8 +64,8 @@ const PickerModal = ({
         })
 
         const searchResult = {}
-        Object.keys(storeAllIcons).forEach(iconName => {
-            if (iconName.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
+        Object.keys(storeAllIcons).forEach(async iconName => {
+            if (iconName.toLocaleLowerCase().includes(await searchValue.toLocaleLowerCase())) {
                 searchResult[iconName] = storeAllIcons[iconName]
             }
         })
