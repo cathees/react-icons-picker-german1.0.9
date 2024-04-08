@@ -51,7 +51,7 @@ const PickerModal = ({
     }
     const translateInput = async (input) => {
     const translation = await translate(input, {from: 'de', to: 'en', engine:'google'})
-    return translation
+        return translation
     }
     const processResult = async () => {
 
@@ -65,7 +65,7 @@ const PickerModal = ({
 
         const searchResult = {}
         Object.keys(storeAllIcons).forEach(iconName => {
-            if (iconName.toLocaleLowerCase().includes(translateInput(searchValue).toLocaleLowerCase())) {
+            if (iconName.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
                 searchResult[iconName] = storeAllIcons[iconName]
             }
         })
